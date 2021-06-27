@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import './App.css';
 
 function App() {
@@ -7,19 +7,45 @@ function App() {
             <div>
                 <h1>Hello React Router</h1>
             </div>
+
+            <h3>SLOW: Reload the whole page</h3>
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/about">About</a>
+                </li>
+                <li>
+                    <a href="/contact">Contact</a>
+                </li>
+            </ul>
+
+            <h3>FASTER: Use Link component to update only necessary part</h3>
+            <ul>
+                <li>
+                    <Link to="/">Home</Link>
+                </li>
+                <li>
+                    <Link to="/about">About</Link>
+                </li>
+                <li>
+                    <Link to="/contact">Contact</Link>
+                </li>
+            </ul>
             <Switch>
-            <Route exact path="/">
-                <Home />
-            </Route>
-            <Route path="/about">
-                <About />
-            </Route>
-            <Route path="/contact">
-                <Contact />
-            </Route>
-            <Route>
-                <NotFound />
-            </Route>
+                <Route exact path="/">
+                    <Home />
+                </Route>
+                <Route path="/about">
+                    <About />
+                </Route>
+                <Route path="/contact">
+                    <Contact />
+                </Route>
+                <Route>
+                    <NotFound />
+                </Route>
             </Switch>
         </BrowserRouter>
     );
