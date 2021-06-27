@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './App.css';
 
 function App() {
@@ -7,7 +8,6 @@ function App() {
             <div>
                 <h1>Hello React Router</h1>
             </div>
-
             <h3>SLOW: Reload the whole page</h3>
             <ul>
                 <li>
@@ -20,7 +20,6 @@ function App() {
                     <a href="/contact">Contact</a>
                 </li>
             </ul>
-
             <h3>FASTER: Use Link component to update only necessary part</h3>
             <ul>
                 <li>
@@ -33,7 +32,6 @@ function App() {
                     <Link to="/contact">Contact</Link>
                 </li>
             </ul>
-
             <h3>NavLink</h3>
             <ul>
                 <li>
@@ -55,6 +53,11 @@ function App() {
                         Contact
                     </NavLink>
                 </li>
+                <li>
+                    <NavLink activeClassName="active" to="/posts">
+                        Posts
+                    </NavLink>
+                </li>
             </ul>
             <Switch>
                 <Route exact path="/">
@@ -66,6 +69,10 @@ function App() {
                 <Route path="/contact">
                     <Contact />
                 </Route>
+                {/* Using comonent props, we can obtain props from the component. Props include location and match objects that contain accessed URL path information such a "/posts" */}
+                <Route exact path="/posts" component={Posts} />
+                <Route path="/posts/:id" component={Post} />
+
                 <Route>
                     <NotFound />
                 </Route>
@@ -89,4 +96,18 @@ function Contact() {
 function NotFound() {
     return <h2>Not Found Page</h2>;
 }
+
+function Posts() {
+    return <h2>Post List</h2>;
+}
+
+function Post(props) {
+    console.log(props.match.params.id);
+
+    return <h2>Post</h2>;
+}
+
+Post.propTypes = {
+    match: PropTypes.any,
+};
 export default App;
