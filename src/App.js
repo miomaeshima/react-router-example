@@ -102,12 +102,13 @@ function Posts() {
 }
 
 function Post(props) {
-    console.log(props.match.params.id);
-
-    return <h2>Post</h2>;
+    const id= props.match.params.id;
+    return <h2>Post {id}</h2>;
 }
-
+//Without this, eslint returns error and does not allow to obtain props content.
 Post.propTypes = {
     match: PropTypes.any,
 };
+
+
 export default App;

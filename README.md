@@ -1,4 +1,5 @@
 ## Practicing react router
+This is an example app based on https://reffect.co.jp/react/react-router#i to practice using react router
 
 Things I learned are ...
 
@@ -65,3 +66,6 @@ Post.propTypes = {
 ```
 Reference: PropTypes in React: A complete guide
 https://blog.logrocket.com/validating-react-component-props-with-prop-types-ef14b29963fc/
+
+So far I've covered to 5.2 of https://reffect.co.jp/react/react-router#i
+
