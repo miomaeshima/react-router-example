@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 import './App.css';
 
 function App() {
@@ -31,6 +31,29 @@ function App() {
                 </li>
                 <li>
                     <Link to="/contact">Contact</Link>
+                </li>
+            </ul>
+
+            <h3>NavLink</h3>
+            <ul>
+                <li>
+                    <NavLink
+                        activeStyle={{ fontWeight: 'bold', color: 'red' }}
+                        exact
+                        to="/"
+                    >
+                        Home
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink activeClassName="active" to="/about">
+                        About
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink activeClassName="active" to="/contact">
+                        Contact
+                    </NavLink>
                 </li>
             </ul>
             <Switch>
